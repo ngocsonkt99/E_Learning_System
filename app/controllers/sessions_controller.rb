@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+  
   def destroy
     flash[:success] = "You are logged out"
     redirect_to users_sign_in_path
