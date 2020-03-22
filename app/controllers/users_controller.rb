@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Sign Up Success"
       redirect_to root_path
     else
-      flash[:alert] = "Registration Failed"
+      flash.now[:warning] = "Registration Failed"
       render :new
     end
   end
