@@ -6,16 +6,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:succes] = "Sign Up Success"
+      flash[:notice] = "Sign Up Success"
       redirect_to root_path
     else
-      flash[:succes] = "Registration Failed"
+      flash[:alert] = "Registration Failed"
       render :new
     end
   end
 
   private
   def user_params
-    params.require(:user).permit :email, :fullname, :password
+    params.require(:user).permit :email, :fullname, :password, :password_confirmation
   end
 end
