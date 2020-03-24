@@ -25,19 +25,21 @@
             <li class="nav-item active nav-link">
               <%= link_to 'Home', root_path %>
             </li>
+            <% if signed_in? %>
             <li class="nav-item nav-link">
-             <%= link_to "Logout", logout_path, method: :delete %>
-           </li>
-           <li class="nav-item nav-link">
-             <%= link_to "Show", users_path(:id), method: :delete %>
-           </li>
-
+              <%= link_to "Log_out", log_out_path, method: :delete %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Show", users_path(current_user) %>
+            </li>
+          <% else %>
             <li class="nav-item nav-link">
               <%= link_to 'Sign_up', users_sign_up_path %>
             </li>
             <li class="nav-item nav-link">
               <%= link_to 'Sign_in', users_sign_in_path %>
             </li>
+          <% end %>
           </ul>
         </div>
       </nav>

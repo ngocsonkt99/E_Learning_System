@@ -5,17 +5,13 @@
         <label>
           <strong>Email:</strong>
           <%= @user.email %>
-        </label>
+        </label><br>
         <label>
           <strong>fullname:</strong>
           <%= @user.fullname %>
         </label>
-        <label>
-          <strong>Avatar:</strong>
-          <%= image_tag @user.avatar.url %>
-        </label>
       </div>
-      <%= link_to "Logout", logout_path, method: :delete %>
+      <%= link_to "Log_out", log_out_path, method: :delete %>
     </div>
   </div>
 </div>
