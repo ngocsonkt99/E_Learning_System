@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get "users/sign_in" => "sessions#new"
   post "users/sign_in" => "sessions#create"
   delete "log_out" => "sessions#destroy"
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 end

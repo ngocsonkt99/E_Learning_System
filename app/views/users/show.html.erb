@@ -11,6 +11,7 @@
           <%= @user.fullname %>
         </label>
       </div>
+      <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
       <%= link_to "Log_out", log_out_path, method: :delete %>
     </div>
   </div>
