@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.save
+    if @user.save 
       flash[:notice] = "Sign Up Success"
       redirect_to root_path
     else
@@ -14,8 +14,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by id:(params[:id])
+  end
+
   private
   def user_params
-    params.require(:user).permit :email, :fullname, :password, :password_confirmation
+    params.require(:user).permit :email, :fullname, :password, :password_confirmation, :avatar
   end
 end
