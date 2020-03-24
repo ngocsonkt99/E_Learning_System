@@ -32,6 +32,9 @@
             <li class="nav-item nav-link">
               <%= link_to "Show", user_path(current_user) %>
             </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
+            </li>
           <% else %>
             <li class="nav-item nav-link">
               <%= link_to 'Sign_up', users_sign_up_path %>
@@ -43,6 +46,7 @@
           </ul>
         </div>
       </nav>
+    <%= render 'shared/flashregister'%>
     <%= yield %>
   </body>
 </html>

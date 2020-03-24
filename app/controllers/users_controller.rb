@@ -5,12 +5,26 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.save 
+    if @user.save
       flash[:notice] = "Sign Up Success"
       redirect_to root_path
     else
       flash.now[:warning] = "Registration Failed"
       render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Update Success"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
     end
   end
 
