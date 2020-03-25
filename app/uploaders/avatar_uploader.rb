@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -25,10 +27,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   include CarrierWave::MiniMagick
-      process resize_to_fit: [800, 800]
-      version :thumb do
-      process resize_to_fill: [200,200]
-      end
+  process resize_to_fit: [800, 800]
+  version :thumb do
+    process resize_to_fill: [200, 200]
+  end
   # def scale(width, height)
   #   # do something
   # end
@@ -47,7 +49,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-     %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

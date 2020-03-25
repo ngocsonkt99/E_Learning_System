@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -6,11 +8,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-        UserMailer.with(user: @user).welcome_email.deliver_now
-      flash[:notice] = "Sign Up Success"
+      UserMailer.with(user: @user).welcome_email.deliver_now
+      flash[:notice] = 'Sign Up Success'
       redirect_to root_path
     else
-      flash.now[:warning] = "Registration Failed"
+      flash.now[:warning] = 'Registration Failed'
       render :new
     end
   end
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Update Success"
+      flash[:success] = 'Update Success'
       redirect_to user_path(@user)
     else
       render 'edit'
@@ -30,10 +32,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id:(params[:id])
+    @user = User.find_by id: params[:id]
   end
 
   private
+
   def user_params
     params.require(:user).permit :email, :fullname, :password, :password_confirmation, :avatar
   end
