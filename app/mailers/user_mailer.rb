@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  include Rails.application.routes.url_helpers
   default from: 'notifications@example.com'
 
   def welcome_email
