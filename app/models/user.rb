@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token
-
+  mount_uploader :avatar, AvatarUploader
   has_secure_password
 
   before_save { self.email = email.downcase }

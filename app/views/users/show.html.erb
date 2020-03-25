@@ -9,6 +9,10 @@
         <label>
           <strong>fullname:</strong>
           <%= @user.fullname %>
+        </label><br>
+        <label>
+          <strong>Avatar:</strong>
+          <%= image_tag(@user.avatar_url) if @user.avatar? %>
         </label>
       </div>
       <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
