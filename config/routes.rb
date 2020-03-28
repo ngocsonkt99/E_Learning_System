@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   post 'users/sign_in' => 'sessions#create'
   delete 'log_out' => 'sessions#destroy'
   resources :users, only: %i[show edit update]
+  resources :categories, only: %i[index]
+  namespace :admin do
+    resources :categories, only: %i[new create]
+  end
 end
