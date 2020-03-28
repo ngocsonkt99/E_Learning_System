@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   resources :categories, only: %i[index]
   namespace :admin do
-    resources :categories, only: %i[new create]
+    resources :categories, only: %i[index new create]
   end
 end
